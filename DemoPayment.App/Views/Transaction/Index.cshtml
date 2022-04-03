@@ -1,0 +1,6 @@
+﻿@using Stripe
+@model List<Charge>
+
+@foreach(var charge in Model) {
+    <h1>[@charge.Created] - @("**** **** **** " + charge.PaymentMethodDetails.Card.Last4) - @(string.Format("{0:F2}$", (charge.Amount / 100.0M)))</h1>
+}
